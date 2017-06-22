@@ -210,7 +210,7 @@ converts to::
 
 from setuptools import setup
 setup(name='slimish_jinja',
-      version='1.0.1',
+      version='2.0.0b1',
       packages=['slimish_jinja'],
       scripts=['slim_to_jinja.py'],
       install_requires=['distribute', 'jinja2'],

@@ -1,4 +1,3 @@
-import sys
 from .tokens import *
 
 class Parser(object):
@@ -52,7 +51,7 @@ class Parser(object):
             elif isinstance(self.lookahead, JinjaToken):
                 self.jinja_tag()
             elif isinstance(self.lookahead, TextToken) or isinstance(self.lookahead, JinjaOutputToken):
-                self.output_tag(self.lookahead)
+                self.output_tag()
             else:
                 return
 
@@ -154,7 +153,7 @@ class Parser(object):
         self.doc()
         self.unindent()
 
-    def output_tag(self, lookahead):
+    def output_tag(self):
         """
         Sends output to `self.callback` and reads next token.
         """
@@ -194,7 +193,7 @@ class Parser(object):
         if self.lookahead == lookahead:
             self.lookahead = next(self.it)
         else:
-            raise SyntaxError("Parser error: expected %s at line %d" (self.lookahead, self.lookahead.lineno))
+            raise SyntaxError("Parser error: expected %s at line %d" % (self.lookahead, self.lookahead.lineno))
 
     def format_output(self, input):
         """

@@ -53,7 +53,7 @@ class HtmlToken(Token):
     """
     HTML token.
     """
-    no_content_html_tags = set(map(intern,
+    no_content_html_tags = set(map(sys.intern,
                                    ['area', 'base', 'basefont', 'br', 'col', 'frame', 'hr',
                                     'img', 'input', 'isindex', 'link', 'meta', 'param']))
 
@@ -113,7 +113,7 @@ JINJA_CLOSE_TAG = sys.intern('jinja_close_tag')
 JINJA_NC_TAG = sys.intern('jinja_nc_tag')
 
 class JinjaToken(Token):
-    no_content_jinja_tags = set(map(intern,
+    no_content_jinja_tags = set(map(sys.intern,
                                     ['include', 'extends', 'import', 'set',
                                      'from', 'do', 'break', 'continue',
                                     ]))
